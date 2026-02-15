@@ -1,0 +1,54 @@
+{
+    "prizes": [
+        {
+            "name": "大吉大利",
+            "description": "新的一年，万事顺遂，好运连连！",
+            "icon": "🎊"
+        },
+        {
+            "name": "恭喜发财",
+            "description": "财运亨通，财源广进，红包拿来！",
+            "icon": "🧧"
+        },
+        {
+            "name": "心想事成",
+            "description": "所有美好的愿望都能实现！",
+            "icon": "✨"
+        },
+        {
+            "name": "步步高升",
+            "description": "事业蒸蒸日上，前程似锦！",
+            "icon": "🚀"
+        },
+        {
+            "name": "平安喜乐",
+            "description": "身体健康，平平安安，快快乐乐！",
+            "icon": "🌸"
+        },
+        {
+            "name": "桃花朵朵",
+            "description": "爱情甜蜜，桃花运爆棚！",
+            "icon": "💕"
+        },
+        {
+            "name": "学业有成",
+            "description": "考试顺利，金榜题名！",
+            "icon": "📚"
+        },
+        {
+            "name": "暴富暴瘦",
+            "description": "钱包鼓鼓，身材棒棒！",
+            "icon": "💰"
+        },
+        {
+            "name": "好运爆棚",
+            "description": "幸运女神眷顾，好事不断！",
+            "icon": "🍀"
+        },
+        {
+            "name": "龙马精神",
+            "description": "精力充沛，活力满满！",
+            "icon": "🐉"
+        }
+    ]
+}
