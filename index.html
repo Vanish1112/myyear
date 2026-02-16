@@ -422,7 +422,8 @@
             overflow: hidden;
             display: flex;
             flex-direction: row;
-            min-height: 500px;
+            min-height: 580px;
+            max-height: 85vh;
         }
 
         .horizontal-card::before {
@@ -512,17 +513,30 @@
 
         .card-right {
             width: 65%;
-            padding: 40px;
+            padding: 30px 35px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             position: relative;
+            overflow: hidden;
+        }
+
+        .card-blessings-title {
+            font-size: 1.1rem;
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed rgba(255, 107, 107, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .card-blessings {
-            max-height: 350px;
+            max-height: 380px;
             overflow-y: auto;
             padding-right: 15px;
+            flex: 1;
         }
 
         .card-blessings::-webkit-scrollbar {
@@ -540,30 +554,21 @@
         }
 
         .card-blessing-item {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #444;
-            line-height: 2;
-            margin-bottom: 18px;
-            padding: 15px 20px;
+            line-height: 1.9;
+            margin-bottom: 15px;
+            padding: 12px 18px;
             background: linear-gradient(135deg, rgba(255, 236, 210, 0.5), rgba(252, 182, 159, 0.3));
-            border-radius: 15px;
+            border-radius: 12px;
             position: relative;
-            border-left: 4px solid #ff6b6b;
+            border-left: 3px solid #ff6b6b;
             transition: all 0.3s ease;
         }
 
         .card-blessing-item:hover {
             transform: translateX(5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .card-blessing-item::before {
-            content: '🌸';
-            position: absolute;
-            left: -12px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.2rem;
         }
 
         .card-signature {
@@ -637,9 +642,38 @@
             align-items: center;
         }
 
+        .page3-title {
+            position: absolute;
+            top: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 15;
+        }
+
+        .page3-title h2 {
+            font-size: 2.5rem;
+            color: #ffd700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5), 0 0 20px rgba(255,215,0,0.3);
+            margin-bottom: 10px;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+
+        .page3-title p {
+            font-size: 1.3rem;
+            color: #fff;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            opacity: 0.9;
+        }
+
+        @keyframes titleGlow {
+            from { text-shadow: 2px 2px 8px rgba(0,0,0,0.5), 0 0 20px rgba(255,215,0,0.3); }
+            to { text-shadow: 2px 2px 8px rgba(0,0,0,0.5), 0 0 30px rgba(255,215,0,0.6), 0 0 40px rgba(255,107,107,0.4); }
+        }
+
         .red-packet {
-            width: 340px;
-            height: 460px;
+            width: 400px;
+            height: 540px;
             position: relative;
             cursor: pointer;
             transform-style: preserve-3d;
@@ -688,7 +722,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 140px;
+            height: 160px;
             background: linear-gradient(180deg, #c0392b 0%, #e74c3c 100%);
             border-radius: 20px 20px 50% 50%;
             transform-origin: top center;
@@ -696,18 +730,18 @@
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            padding-bottom: 20px;
+            padding-bottom: 25px;
             z-index: 2;
         }
 
         .red-packet-flap::after {
             content: '開';
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: #ffd700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             background: radial-gradient(circle, #e74c3c 0%, #c0392b 100%);
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -797,10 +831,98 @@
             pointer-events: none;
             z-index: 999;
             display: none;
+            justify-content: center;
+            align-items: center;
         }
 
         .lottery-animation.active {
-            display: block;
+            display: flex;
+        }
+
+        .lottery-slot-machine {
+            background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+            border-radius: 20px;
+            padding: 30px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8), inset 0 2px 0 rgba(255,255,255,0.1);
+            border: 3px solid #ffd700;
+            text-align: center;
+        }
+
+        .lottery-slot-title {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+
+        .lottery-slot-window {
+            width: 280px;
+            height: 80px;
+            background: linear-gradient(180deg, #000 0%, #1a1a1a 50%, #000 100%);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto 20px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+        }
+
+        .lottery-slot-window::before,
+        .lottery-slot-window::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 20px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .lottery-slot-window::before {
+            top: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+        }
+
+        .lottery-slot-window::after {
+            bottom: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+        }
+
+        .lottery-slot-highlight {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 50px;
+            transform: translateY(-50%);
+            border-top: 2px solid #ffd700;
+            border-bottom: 2px solid #ffd700;
+            background: rgba(255,215,0,0.1);
+            z-index: 1;
+        }
+
+        .lottery-slot-items {
+            position: absolute;
+            width: 100%;
+            transition: transform 0.1s ease-out;
+        }
+
+        .lottery-slot-item {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        .lottery-slot-item .item-icon {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+
+        .lottery-slot-item .item-name {
+            font-weight: bold;
         }
 
         .lottery-item {
@@ -931,6 +1053,21 @@
             }
         }
 
+        @keyframes starBurst {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5) rotate(180deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         @media (max-width: 768px) {
             .horizontal-card {
                 flex-direction: column;
@@ -964,8 +1101,8 @@
             }
 
             .red-packet {
-                width: 280px;
-                height: 380px;
+                width: 320px;
+                height: 430px;
             }
         }
     </style>
@@ -1027,6 +1164,7 @@
             </div>
             
             <div class="card-right">
+                <div class="card-blessings-title">💌 写给大魔王的话</div>
                 <div class="card-blessings" id="cardBlessings">
                 </div>
                 <div class="card-signature" id="cardSignature"></div>
@@ -1042,6 +1180,11 @@
         <div class="floating-petals" id="petals3"></div>
         <div class="lantern lantern-left">🏮</div>
         <div class="lantern lantern-right">🏮</div>
+        
+        <div class="page3-title">
+            <h2>🐴 马年快乐 🐴</h2>
+            <p>四荤一素来发红包啦！</p>
+        </div>
         
         <div class="red-packet-container">
             <div class="red-packet" id="redPacket" onclick="openRedPacket()">
@@ -1070,7 +1213,15 @@
     </div>
 
     <div class="fireworks" id="fireworks"></div>
-    <div class="lottery-animation" id="lotteryAnimation"></div>
+    <div class="lottery-animation" id="lotteryAnimation">
+        <div class="lottery-slot-machine">
+            <div class="lottery-slot-title">🎰 幸运抽奖中...</div>
+            <div class="lottery-slot-window">
+                <div class="lottery-slot-highlight"></div>
+                <div class="lottery-slot-items" id="slotItems"></div>
+            </div>
+        </div>
+    </div>
 
     <script>
         let charactersData = [];
@@ -1079,6 +1230,8 @@
         let bgm = null;
         let isMusicPlaying = false;
         let isRedPacketOpen = false;
+        let drawnPrizes = [];
+        let showHiddenPrize = false;
 
         async function loadData() {
             try {
@@ -1120,8 +1273,26 @@
                 }).catch(e => {
                     document.getElementById('musicBtn').textContent = '🔇';
                     document.getElementById('musicBtn').classList.remove('playing');
+                    setupAutoPlayTrigger();
                 });
             }
+        }
+
+        function setupAutoPlayTrigger() {
+            const triggerPlay = () => {
+                if (!isMusicPlaying && bgm) {
+                    bgm.play().then(() => {
+                        isMusicPlaying = true;
+                        document.getElementById('musicBtn').textContent = '🔊';
+                        document.getElementById('musicBtn').classList.add('playing');
+                    }).catch(() => {});
+                }
+            };
+            
+            const events = ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart', 'click'];
+            events.forEach(event => {
+                document.addEventListener(event, triggerPlay, { once: true, passive: true });
+            });
         }
 
         function toggleMusic() {
@@ -1327,58 +1498,237 @@
             const text = document.querySelector('.red-packet-text');
             
             if (!isRedPacketOpen) {
+                const availablePrizes = prizesData.filter((_, index) => !drawnPrizes.includes(index));
+                
+                if (availablePrizes.length === 0 && showHiddenPrize) {
+                    hint.textContent = '恭喜你已解锁全部奖励！';
+                    return;
+                }
+                
                 redPacket.classList.add('opened');
                 isRedPacketOpen = true;
                 hint.textContent = '正在抽取你的好运...';
                 text.style.display = 'none';
                 
                 setTimeout(() => {
-                    playLotteryAnimation();
+                    playSlotMachineAnimation();
                 }, 500);
-                
-                setTimeout(() => {
-                    const prize = prizesData[Math.floor(Math.random() * prizesData.length)];
-                    document.getElementById('prizeIcon').textContent = prize.icon;
-                    document.getElementById('prizeName').textContent = prize.name;
-                    document.getElementById('prizeDescription').textContent = prize.description;
-                    prizeResult.classList.add('show');
-                    hint.textContent = '点击红包再次抽取';
-                    createConfetti();
-                }, 2000);
             } else {
                 redPacket.classList.remove('opened');
                 prizeResult.classList.remove('show');
                 isRedPacketOpen = false;
-                hint.textContent = '点击红包开启好运';
+                
+                const availablePrizes = prizesData.filter((_, index) => !drawnPrizes.includes(index));
+                if (availablePrizes.length === 0 && showHiddenPrize) {
+                    hint.textContent = '恭喜你已解锁全部奖励！';
+                } else {
+                    hint.textContent = '点击红包继续抽奖';
+                }
                 text.style.display = 'block';
             }
         }
 
-        function playLotteryAnimation() {
+        function playSlotMachineAnimation() {
             const container = document.getElementById('lotteryAnimation');
-            container.innerHTML = '';
+            const slotItems = document.getElementById('slotItems');
             container.classList.add('active');
             
-            const icons = ['🎊', '🧧', '✨', '🎉', '💰', '🍀', '🐉', '💕', '🚀', '🌸'];
+            slotItems.innerHTML = '';
             
-            for (let i = 0; i < 20; i++) {
-                setTimeout(() => {
-                    const item = document.createElement('div');
-                    item.className = 'lottery-item';
-                    item.textContent = icons[Math.floor(Math.random() * icons.length)];
-                    item.style.left = '50%';
-                    item.style.top = '50%';
-                    item.style.setProperty('--endX', (Math.random() * 400 - 200) + 'px');
-                    item.style.setProperty('--endY', (Math.random() * 400 - 200) + 'px');
-                    container.appendChild(item);
-                    
-                    setTimeout(() => item.remove(), 1000);
-                }, i * 80);
+            const totalSpins = 3;
+            const itemHeight = 80;
+            
+            const availablePrizes = prizesData.filter((_, index) => !drawnPrizes.includes(index));
+            
+            if (availablePrizes.length === 0 && !showHiddenPrize) {
+                showHiddenPrize = true;
+                playHiddenPrizeAnimation();
+                return;
             }
             
-            setTimeout(() => {
-                container.classList.remove('active');
-            }, 2000);
+            let finalPrizeIndex;
+            if (showHiddenPrize) {
+                playHiddenPrizeAnimation();
+                return;
+            } else {
+                const availableIndices = prizesData.map((_, index) => index).filter(index => !drawnPrizes.includes(index));
+                finalPrizeIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+            }
+            
+            let allItems = '';
+            for (let spin = 0; spin < totalSpins; spin++) {
+                for (let i = 0; i < prizesData.length; i++) {
+                    const prize = prizesData[i];
+                    allItems += `<div class="lottery-slot-item">
+                        <span class="item-icon">${prize.icon}</span>
+                        <span class="item-name">${prize.name}</span>
+                    </div>`;
+                }
+            }
+            allItems += `<div class="lottery-slot-item">
+                <span class="item-icon">${prizesData[finalPrizeIndex].icon}</span>
+                <span class="item-name">${prizesData[finalPrizeIndex].name}</span>
+            </div>`;
+            
+            slotItems.innerHTML = allItems;
+            
+            const totalScrollItems = totalSpins * prizesData.length + 1;
+            const targetPosition = (totalScrollItems - 1) * itemHeight;
+            
+            let currentPosition = 0;
+            const startTime = Date.now();
+            const duration = 4000;
+            
+            function animate() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                const easeOut = 1 - Math.pow(1 - progress, 4);
+                currentPosition = targetPosition * easeOut;
+                
+                slotItems.style.transform = `translateY(-${currentPosition}px)`;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    setTimeout(() => {
+                        container.classList.remove('active');
+                        drawnPrizes.push(finalPrizeIndex);
+                        showPrizeResult(prizesData[finalPrizeIndex]);
+                    }, 500);
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+
+        function playHiddenPrizeAnimation() {
+            const container = document.getElementById('lotteryAnimation');
+            const slotItems = document.getElementById('slotItems');
+            container.classList.add('active');
+            
+            const hiddenPrize = {
+                name: '哆啦A聪万能特权券',
+                description: '不管是小小心愿还是奇思妙想，这张券都能帮你一键达成✨',
+                icon: '🎁'
+            };
+            
+            let allItems = '';
+            for (let i = 0; i < 30; i++) {
+                const randomPrize = prizesData[Math.floor(Math.random() * prizesData.length)];
+                allItems += `<div class="lottery-slot-item">
+                    <span class="item-icon">${randomPrize.icon}</span>
+                    <span class="item-name">${randomPrize.name}</span>
+                </div>`;
+            }
+            allItems += `<div class="lottery-slot-item" style="background: linear-gradient(90deg, #ffd700, #ff6b6b, #ffd700); color: #fff;">
+                <span class="item-icon">🎁</span>
+                <span class="item-name" style="color: #fff;">哆啦A聪万能特权券</span>
+            </div>`;
+            
+            slotItems.innerHTML = allItems;
+            
+            const itemHeight = 80;
+            const targetPosition = 30 * itemHeight;
+            
+            let currentPosition = 0;
+            const startTime = Date.now();
+            const duration = 5000;
+            
+            function animate() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                const easeOut = 1 - Math.pow(1 - progress, 5);
+                currentPosition = targetPosition * easeOut;
+                
+                slotItems.style.transform = `translateY(-${currentPosition}px)`;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    setTimeout(() => {
+                        container.classList.remove('active');
+                        showHiddenPrizeResult();
+                    }, 500);
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+
+        function showHiddenPrizeResult() {
+            const prizeResult = document.getElementById('prizeResult');
+            const hint = document.getElementById('redPacketHint');
+            
+            prizeResult.style.background = 'linear-gradient(135deg, rgba(255,215,0,0.9), rgba(255,107,107,0.9))';
+            prizeResult.style.padding = '40px 30px';
+            
+            document.getElementById('prizeIcon').textContent = '🎁';
+            document.getElementById('prizeIcon').style.fontSize = '6rem';
+            document.getElementById('prizeName').innerHTML = '🎉 叮咚～大奖预警！🎉';
+            document.getElementById('prizeName').style.fontSize = '1.8rem';
+            document.getElementById('prizeDescription').innerHTML = `
+                <div style="margin-bottom: 15px;">你不仅掏空了整个奖池，</div>
+                <div style="margin-bottom: 15px;">还触发了本次活动隐藏终极彩蛋！</div>
+                <div style="font-size: 1.5rem; color: #ffd700; margin: 20px 0; text-shadow: 0 0 10px rgba(255,215,0,0.8);">
+                    恭喜获得「哆啦A聪万能特权券」一张
+                </div>
+                <div style="margin-top: 15px;">不管是小小心愿还是奇思妙想，</div>
+                <div>这张券都能帮你一键达成，可以随时找哆啦A聪兑换哦✨</div>
+            `;
+            prizeResult.classList.add('show');
+            hint.textContent = '恭喜你解锁了终极大奖！';
+            
+            createGrandPrizeEffect();
+        }
+
+        function createGrandPrizeEffect() {
+            for (let wave = 0; wave < 3; wave++) {
+                setTimeout(() => {
+                    createConfetti();
+                }, wave * 500);
+            }
+            
+            createFireworks();
+            
+            const colors = ['#ffd700', '#ff6b6b', '#ff69b4', '#00ff00', '#00ffff', '#ff00ff'];
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const star = document.createElement('div');
+                    star.style.cssText = `
+                        position: fixed;
+                        width: ${Math.random() * 20 + 10}px;
+                        height: ${Math.random() * 20 + 10}px;
+                        background: ${colors[Math.floor(Math.random() * colors.length)]};
+                        border-radius: 50%;
+                        left: ${Math.random() * 100}vw;
+                        top: ${Math.random() * 100}vh;
+                        pointer-events: none;
+                        z-index: 1002;
+                        animation: starBurst 1s ease-out forwards;
+                    `;
+                    document.body.appendChild(star);
+                    setTimeout(() => star.remove(), 1000);
+                }, i * 30);
+            }
+        }
+
+        function showPrizeResult(prize) {
+            const prizeResult = document.getElementById('prizeResult');
+            const hint = document.getElementById('redPacketHint');
+            
+            prizeResult.style.background = 'rgba(0, 0, 0, 0.7)';
+            prizeResult.style.padding = '30px';
+            
+            document.getElementById('prizeIcon').textContent = prize.icon;
+            document.getElementById('prizeIcon').style.fontSize = '5rem';
+            document.getElementById('prizeName').textContent = prize.name;
+            document.getElementById('prizeName').style.fontSize = '2.2rem';
+            document.getElementById('prizeDescription').textContent = prize.description;
+            prizeResult.classList.add('show');
+            hint.textContent = '点击红包再次抽取';
+            createConfetti();
         }
 
         function createConfetti() {
